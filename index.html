@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='/style.css') }}">
+    <title>Diabetes Detection</title>
+</head>
+
+<body>
+
+    <h1>Diabetes Detection</h1>
+
+    <div class="form">
+
+        <form action="/predict" , method="POST">
+
+            <div class="label">
+                <label class="tag-1">Number of times pregnant : </label>
+                <input class="input-1" type="text" name="pregnencies" required>
+
+            </div>
+
+            <div class="label">
+                <label class="tag-2">Plasma glucose concentration : </label>
+                <input type="text" name="glucose" required>
+
+            </div>
+
+            <div class="label">
+                <label class="tag-3">Diastolic blood pressure (mm Hg) : </label>
+                <input type="text" name="bloodpressure" required>
+
+            </div>
+
+            <div class="label">
+                <label class="tag-4">Triceps skin fold thickness (mm) : </label>
+                <input type="text" name="SkinThickness" required>
+
+            </div>
+
+            <div class="label">
+                <label class="tag-5">2-Hour serum insulin (mu U/ml) : </label>
+                <input type="text" name="insulin" required>
+
+            </div>
+
+            <div class="label">
+                <label class="tag-5">Body mass index  : </label>
+                <input type="text" name="BMI" required>
+
+            </div>
+
+            <div class="label">
+                <label class="tag-5">Diabetes pedigree function : </label>
+                <input type="text" name="DiabetesPedigreeFunction" required>
+
+            </div>
+
+            <div class="label">
+                <label class="tag-5">Age (years) : </label>
+                <input type="text" name="age" required>
+
+            </div>
+
+            
+
+           
+            <div class="btn"><input type="submit" , value="Detect Diabetes"><br></div>
+
+            <div class="prediction"><h3>
+                {% if diabetes_predict == 1 : %}
+                <h2><b>
+                    <p style="color: red;">As Per the information provided </p>
+                    <p style="color: red;">You have been detected with Diabetes</p>
+                </b></h2>
+                {% else %}
+                <h2><b>
+                    <p style="color: green;">As Per the information provided</p>
+                    <p style="color: green;">You are not detected with Diabetes</p>
+                </b></h2>
+                {% endif %}
+    
+                
+
+
+            </h3></div>
+
+
+
+
+        </form>
+    </div>
+
+</body>
+
+</html>
